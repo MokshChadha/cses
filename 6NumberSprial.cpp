@@ -9,7 +9,6 @@ freopen("output.txt", "w", stdout);
 long long int testCase; cin>>testCase;
 while(testCase--){
 	long long int row,column,solution;
-
     cin>>row>>column;
     if(row==column) solution = row*row + 1- row;
     else{
