@@ -32,4 +32,5 @@ freopen("output.txt", "w", stdout);
       for (int j = 0; j < a[i] / 2; j++)
         palindrome.push_back(i + 'A');
   cout << palindrome << "\n";
+  
 }
