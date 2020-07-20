@@ -1,0 +1,43 @@
+#include<iostream>
+#include<set>
+#include<tuple>
+
+using namespace std;
+typedef tuple<int,int> ii;
+typedef set<ii> sii;
+
+
+int main() {
+/*#ifndef ONLINE_JUDGE
+freopen("input.txt","r",stdin);
+freopen("output.txt", "w", stdout);
+#endif*/
+  int x, n;
+  cin>>x>>n;
+
+  sii s{make_tuple(x,x)};
+  sii t{make_tuple(x,x)};
+
+  while(n--){
+    scanf("%d",&x);
+    auto i = s.lower_bound(make_tuple(x,0));
+    int a,b;
+
+    tie(a,b) = *i;
+
+    s.erase(i);
+    s.insert(make_tuple(x,b-(a-x)));
+    s.insert(make_tuple(a,a-x));
+
+    t.erase(make_tuple(b,a));
+    t.insert(make_tuple(b-(a-x),x));
+    t.insert(make_tuple(a-x,a));
+
+    cout<<get<0>(*t.rbegin());
+
+    if(n>0) cout<<" ";
+
+  }
+  cout<<"\n";
+return 0;
+}
